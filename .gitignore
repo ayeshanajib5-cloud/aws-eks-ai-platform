@@ -1,0 +1,9 @@
+﻿@"
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+*.exe
+__pycache__/
+.env
+"@ | Out-File -Encoding utf8 .gitignore
