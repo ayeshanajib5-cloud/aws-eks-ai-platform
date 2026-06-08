@@ -6,7 +6,22 @@ on:
       - main
     paths:
       - "api/**"
+      - "helm/**"
+      - "k8s/**"
+      - "argocd/**"
       - ".github/workflows/ci-cd.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "api/**"
+      - "helm/**"
+      - "k8s/**"
+      - "argocd/**"
+      - ".github/workflows/ci-cd.yml"
+
+  workflow_dispatch:
 
 env:
   AWS_REGION: us-east-1
