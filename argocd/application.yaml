@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/ayeshanajib5-cloud/aws-eks-ai-platform.git
     targetRevision: main
-    path: k8s
+    path: helm/ai-platform
 
   destination:
     server: https://kubernetes.default.svc
