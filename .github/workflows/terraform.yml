@@ -38,11 +38,13 @@ jobs:
         run: terraform init -backend=false
 
       - name: Terraform Validate
-        run: terraform validate
+        run: |
+          terraform validate
 
       - name: Terraform Plan
         run: |
-            terraform plan -input=false \
+          terraform plan \
+            -input=false \
             -var="aws_region=us-east-1" \
             -var="project_name=aws-eks-ai-platform" \
             -var="cluster_name=ai-platform-eks"
