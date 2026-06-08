@@ -1,0 +1,20 @@
+replicaCount: 2
+
+image:
+  repository: 504429674609.dkr.ecr.us-east-1.amazonaws.com/aws-eks-ai-platform-api
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000
+
+app:
+  name: ai-platform-api
+  namespace: ai-platform
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 5
+  cpuUtilization: 60
