@@ -1,104 +1,104 @@
-# AWS EKS AI Platform – Enterprise DevOps & AI Infrastructure
+# 🚀 AWS EKS AI Platform
+### Production-Grade Kubernetes, Terraform, GitOps & DevOps Automation Platform
 
-## Project Overview
-
-AWS EKS AI Platform is a production-grade cloud-native DevOps project designed to demonstrate enterprise infrastructure engineering, Kubernetes orchestration, Infrastructure as Code (IaC), GitOps deployment automation, CI/CD pipelines, monitoring, and scalable AI workload deployment.
-
-The platform deploys containerized FastAPI AI services on Amazon EKS using Terraform, GitHub Actions, ArgoCD, Helm, Prometheus, and Grafana.
+![Architecture](images/architecture.png)
 
 ---
 
-## Key Features
+# 📌 Project Overview
 
-- AWS EKS Kubernetes Cluster
-- Terraform Infrastructure as Code
-- Modular Infrastructure Design
-- Dockerized FastAPI Application
-- Kubernetes Deployments and Services
-- Horizontal Pod Autoscaling (HPA)
-- Health Checks and Rolling Updates
-- Helm Package Management
-- GitHub Actions CI/CD
-- Amazon ECR Container Registry
-- ArgoCD GitOps Deployment
-- Prometheus Monitoring
-- Grafana Dashboards
-- AWS IAM Security Configuration
-- Load Balancer Exposure
-- Production Repository Structure
+AWS EKS AI Platform is a production-grade cloud-native infrastructure project that demonstrates modern DevOps engineering, Kubernetes orchestration, Infrastructure as Code (IaC), GitOps deployment automation, CI/CD pipelines, cloud monitoring, and scalable AI service deployment on AWS.
+
+The platform deploys containerized FastAPI AI services on Amazon EKS using Terraform, GitHub Actions, ArgoCD, Helm, Prometheus, Grafana, Amazon ECR, and AWS networking services.
+
+This project follows enterprise DevOps practices used in production environments and showcases end-to-end cloud platform engineering.
 
 ---
 
-## Technology Stack
+# 🎯 Project Objectives
 
-### Cloud
-- AWS
+The project was designed to demonstrate:
 
-### Infrastructure as Code
-- Terraform
-
-### Containerization
-- Docker
-- Amazon ECR
-
-### Orchestration
-- Kubernetes (Amazon EKS)
-
-### GitOps
-- ArgoCD
-
-### CI/CD
-- GitHub Actions
-
-### Monitoring
-- Prometheus
-- Grafana
-
-### Backend
-- FastAPI
-- Python
+- Kubernetes Administration
+- Infrastructure as Code (Terraform)
+- GitOps Deployment Automation
+- CI/CD Engineering
+- Container Orchestration
+- AWS Cloud Architecture
+- Monitoring & Observability
+- Production Deployment Practices
+- Scalable Application Deployment
+- Enterprise DevOps Engineering
 
 ---
 
-## Architecture
+# 🏗️ Architecture Overview
+
+The platform follows a GitOps-based deployment model.
 
 ```text
+Developer
+    │
+    ▼
 GitHub Repository
-        │
-        ▼
+    │
+    ▼
 GitHub Actions CI/CD
-        │
-        ▼
+    │
+    ▼
 Docker Image Build
-        │
-        ▼
+    │
+    ▼
 Amazon ECR
-        │
-        ▼
+    │
+    ▼
 ArgoCD GitOps
-        │
-        ▼
+    │
+    ▼
 Amazon EKS Cluster
-        │
-        ▼
-FastAPI AI Service
-        │
-        ▼
+    │
+    ▼
+FastAPI Application
+    │
+    ▼
 AWS Load Balancer
-        │
-        ▼
-Prometheus & Grafana
-        │
-        ▼
-Cloud Monitoring & Logging
+    │
+    ▼
+Prometheus Monitoring
+    │
+    ▼
+Grafana Dashboards
 ```
 
+## Architecture Diagram
+
+![Architecture](images/architecture.png)
+
 ---
 
-## Repository Structure
+# ⚙️ Technology Stack
+
+| Category | Technologies |
+|-----------|-------------|
+| Cloud | AWS |
+| Containerization | Docker |
+| Container Registry | Amazon ECR |
+| Orchestration | Amazon EKS |
+| Infrastructure as Code | Terraform |
+| GitOps | ArgoCD |
+| Package Management | Helm |
+| CI/CD | GitHub Actions |
+| Monitoring | Prometheus |
+| Visualization | Grafana |
+| Backend | FastAPI |
+| Language | Python |
+
+---
+
+# 📁 Repository Structure
 
 ```text
-aws-eks-ai-platform/
+aws-eks-ai-platform
 │
 ├── api/
 │   ├── main.py
@@ -110,7 +110,7 @@ aws-eks-ai-platform/
 │       ├── main.tf
 │       ├── variables.tf
 │       ├── outputs.tf
-│       └── providers.tf
+│       ├── providers.tf
 │
 ├── k8s/
 │   ├── namespace.yaml
@@ -121,8 +121,14 @@ aws-eks-ai-platform/
 ├── helm/
 │   └── ai-platform/
 │
+├── monitoring/
+│   ├── prometheus-values.yaml
+│   └── README.md
+│
 ├── argocd/
 │   └── application.yaml
+│
+├── images/
 │
 ├── .github/
 │   └── workflows/
@@ -134,43 +140,41 @@ aws-eks-ai-platform/
 
 ---
 
-## Infrastructure Components
+# ☁️ AWS Infrastructure
 
-### Networking
+Terraform provisions and manages the complete AWS environment.
 
-- Custom VPC
+## Networking
+
+- Virtual Private Cloud (VPC)
 - Public Subnets
 - Private Subnets
+- Internet Gateway
 - NAT Gateway
+- Route Tables
 - Security Groups
 
-### Kubernetes
+## Kubernetes
 
 - Amazon EKS Cluster
 - Managed Node Group
-- Kubernetes Deployment
-- Kubernetes Service
-- Horizontal Pod Autoscaler
+- Kubernetes Namespace
+- Kubernetes Deployments
+- Kubernetes Services
+- Horizontal Pod Autoscaler (HPA)
 - Load Balancer
 
-### Container Registry
+## Container Registry
 
 - Amazon Elastic Container Registry (ECR)
 
-### Monitoring
-
-- Prometheus
-- Grafana
-
-### GitOps
-
-- ArgoCD Application Management
-
 ---
 
-## Deployment Workflow
+# 🏗️ Infrastructure Provisioning
 
-### Infrastructure Deployment
+Terraform Infrastructure as Code automates cloud resource provisioning.
+
+### Terraform Workflow
 
 ```bash
 terraform init
@@ -179,104 +183,357 @@ terraform plan
 terraform apply
 ```
 
-### Docker Build
+### Infrastructure Components
+
+- VPC
+- EKS Cluster
+- Node Groups
+- ECR Repository
+- IAM Roles
+- Security Groups
+- Networking Resources
+
+---
+
+# 🐳 Containerization
+
+The application is packaged as a Docker container.
+
+### Build Image
 
 ```bash
 docker build -t ai-platform-api .
 ```
 
-### Push Image to ECR
+### Push Image to Amazon ECR
 
 ```bash
-docker tag ai-platform-api:latest <ECR-URI>:latest
-docker push <ECR-URI>:latest
+docker tag ai-platform-api:latest <ECR_URI>:latest
+
+docker push <ECR_URI>:latest
 ```
 
-### Kubernetes Deployment
+---
 
-```bash
-kubectl apply -f k8s/
+# 🚀 CI/CD Pipeline
+
+GitHub Actions automates the software delivery lifecycle.
+
+## CI/CD Flow
+
+```text
+GitHub
+   │
+   ▼
+GitHub Actions
+   │
+   ▼
+Docker Build
+   │
+   ▼
+Amazon ECR
+   │
+   ▼
+ArgoCD Sync
+   │
+   ▼
+Amazon EKS Deployment
 ```
 
-### Helm Deployment
+## Automated Tasks
+
+- Source Code Checkout
+- Docker Build
+- Image Tagging
+- Image Push to ECR
+- Terraform Validation
+- GitOps Deployment
+
+### GitHub Actions Pipeline
+
+![GitHub Actions](images/workflow-runs.png)
+
+---
+
+# ☸️ Kubernetes Deployment
+
+The application runs on Amazon EKS.
+
+## EKS Cluster
+
+![EKS Cluster](images/eks-cluster.png)
+
+---
+
+## Managed Node Groups
+
+![Node Groups](images/node-groups.png)
+
+---
+
+## Kubernetes Worker Nodes
+
+![EKS Nodes](images/eks-nodes.png)
+
+---
+
+## Running Pods
+
+![Pods](images/pods.png)
+
+---
+
+# 📦 Helm Deployment
+
+Helm is used to package and deploy Kubernetes resources.
+
+### Deployment
 
 ```bash
 helm upgrade --install ai-platform ./helm/ai-platform
 ```
 
-### ArgoCD Deployment
+Helm manages:
 
-```bash
-kubectl apply -f argocd/application.yaml
+- Deployments
+- Services
+- HPA
+- Health Checks
+- Load Balancer Configuration
+
+---
+
+# 🔄 GitOps with ArgoCD
+
+ArgoCD continuously monitors GitHub repositories and synchronizes desired state with the Kubernetes cluster.
+
+## GitOps Flow
+
+```text
+Git Commit
+     ↓
+GitHub Actions
+     ↓
+Amazon ECR
+     ↓
+ArgoCD
+     ↓
+Amazon EKS
 ```
 
----
+### ArgoCD Dashboard
 
-## CI/CD Workflow
+![ArgoCD](images/argo-cd-1.png)
 
-1. Developer pushes code to GitHub.
-2. GitHub Actions pipeline starts automatically.
-3. Docker image is built.
-4. Docker image is pushed to Amazon ECR.
-5. ArgoCD detects repository changes.
-6. ArgoCD synchronizes Kubernetes resources.
-7. Updated application is deployed to Amazon EKS.
+![ArgoCD](images/argo-cd-2.png)
 
 ---
 
-## Monitoring Workflow
+# 🌐 Load Balancer
 
-Prometheus collects:
+The FastAPI service is exposed externally using an AWS Load Balancer.
+
+## Features
+
+- Public Endpoint
+- Traffic Distribution
+- High Availability
+- Automatic Scaling
+- Production Networking
+
+### Load Balancer
+
+![Load Balancer](images/load-balancer.png)
+
+---
+
+# 📊 Monitoring & Observability
+
+The monitoring stack is powered by Prometheus and Grafana.
+
+## Prometheus
+
+Collects:
 
 - Cluster Metrics
 - Node Metrics
 - Pod Metrics
 - Service Metrics
+- Resource Utilization
 
-Grafana visualizes:
+## Grafana
 
-- CPU Utilization
-- Memory Utilization
+Visualizes:
+
+- CPU Usage
+- Memory Usage
+- Cluster Health
+- Node Health
 - Pod Health
-- Cluster Status
 - Application Metrics
 
----
+### Monitoring Pods
 
-## Screenshots
+![Monitoring Pods](images/monitoring-pods.png)
 
-Add screenshots for:
+### Grafana Dashboard
 
-- AWS EKS Cluster
-- Amazon ECR Repository
-- Running Kubernetes Pods
-- FastAPI Swagger UI
-- GitHub Actions Pipeline
-- ArgoCD Dashboard
-- Prometheus Monitoring
-- Grafana Dashboard
-- Terraform Apply Output
+![Grafana Dashboard](images/grafana-dashboard.png)
 
 ---
 
-## Learning Outcomes
+# 🔐 Security
 
-This project demonstrates:
+Security is implemented across infrastructure and Kubernetes resources.
 
+## AWS Security Controls
+
+- IAM Roles
+- Security Groups
+- Least Privilege Access
+- Kubernetes RBAC
+- Secrets Management
+
+## Kubernetes Security
+
+- Namespace Isolation
+- Secret Management
+- Health Probes
+- Controlled Service Exposure
+
+---
+
+# 📸 Project Screenshots
+
+## Architecture Diagram
+
+![Architecture](images/architecture.png)
+
+---
+
+## Repository Structure
+
+![Repository Structure](images/repository-structure.png)
+
+---
+
+## EKS Cluster
+
+![EKS Cluster](images/eks-cluster.png)
+
+---
+
+## Node Groups
+
+![Node Groups](images/node-groups.png)
+
+---
+
+## Kubernetes Nodes
+
+![EKS Nodes](images/eks-nodes.png)
+
+---
+
+## Running Pods
+
+![Pods](images/pods.png)
+
+---
+
+## ArgoCD Dashboard
+
+![ArgoCD](images/argo-cd-1.png)
+
+![ArgoCD](images/argo-cd-2.png)
+
+---
+
+## Monitoring
+
+![Grafana](images/grafana-dashboard.png)
+
+![Monitoring Pods](images/monitoring-pods.png)
+
+---
+
+## Load Balancer
+
+![Load Balancer](images/load-balancer.png)
+
+---
+
+## CI/CD Pipeline
+
+![Workflow Runs](images/workflow-runs.png)
+
+---
+
+# 🔄 End-to-End System Flow
+
+```text
+Developer
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
+GitHub Actions
+    │
+    ▼
+Docker Build
+    │
+    ▼
+Amazon ECR
+    │
+    ▼
+ArgoCD
+    │
+    ▼
+Amazon EKS
+    │
+    ▼
+FastAPI Application
+    │
+    ▼
+AWS Load Balancer
+    │
+    ▼
+End Users
+    │
+    ▼
+Prometheus
+    │
+    ▼
+Grafana
+```
+
+---
+
+# 🎓 Learning Outcomes
+
+This project demonstrates practical experience with:
+
+- AWS Cloud Engineering
+- Amazon EKS
 - Kubernetes Administration
-- Infrastructure as Code
+- Terraform Infrastructure as Code
+- Docker Containerization
+- GitHub Actions CI/CD
 - GitOps Workflows
-- CI/CD Automation
-- Cloud Infrastructure Engineering
-- Container Orchestration
-- Cloud Monitoring
-- Production Deployment Practices
+- ArgoCD
+- Helm
+- Prometheus
+- Grafana
+- Cloud-Native Deployments
 - Enterprise DevOps Engineering
 
 ---
 
-## Author
+# 👩‍💻 Author
 
 **Ayesha Najib**
 
-AWS | Kubernetes | Terraform | DevOps | Cloud Engineering | AI Infrastructure
+Cloud Engineer | DevOps Engineer | Kubernetes Enthusiast | AWS Practitioner | Infrastructure Automation | AI Platform Engineering
+
+---
