@@ -448,6 +448,11 @@ Security is implemented across infrastructure and Kubernetes resources.
 ![ArgoCD](images/argo-cd-2.png)
 
 ---
+## Terraform Infrastructure Provisioning
+
+![Terraform Apply](images/terraform-apply.png)
+
+---
 
 ## Monitoring
 
@@ -527,6 +532,18 @@ This project demonstrates practical experience with:
 - Grafana
 - Cloud-Native Deployments
 - Enterprise DevOps Engineering
+
+---
+
+# Future Enhancements
+
+- Add Azure AKS as a second Kubernetes platform to extend this project into a multi-cloud architecture.
+- Add Azure Container Registry integration.
+- Add Azure Monitor for multi-cloud observability.
+- Add AWS ALB Ingress Controller.
+- Add Route53 custom domain and HTTPS with AWS ACM.
+- Add Trivy image scanning in CI/CD.
+- Add Terraform remote backend using S3 and DynamoDB.
 
 ---
 
