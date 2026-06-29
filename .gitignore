@@ -1,9 +1,18 @@
-﻿@"
+# Python
+__pycache__/
+*.pyc
+.venv/
+.venv*/
+
+# Environment
+.env
+
+# Terraform
 .terraform/
 *.tfstate
 *.tfstate.*
 terraform.tfvars
+
+# OS and local binaries
+.DS_Store
 *.exe
-__pycache__/
-.env
-"@ | Out-File -Encoding utf8 .gitignore

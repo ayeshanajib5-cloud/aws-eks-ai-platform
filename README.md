@@ -242,11 +242,13 @@ Amazon EKS Deployment
 
 ## Automated Tasks
 
+- API Contract Tests
 - Source Code Checkout
 - Docker Build
 - Image Tagging
 - Image Push to ECR
 - Terraform Validation
+- Terraform Plan on Main Branch
 - GitOps Deployment
 
 ### GitHub Actions Pipeline
@@ -258,6 +260,26 @@ Amazon EKS Deployment
 # ☸️ Kubernetes Deployment
 
 The application runs on Amazon EKS.
+
+## Local Validation
+
+Run the API test suite:
+
+```bash
+python -m pip install -r requirements-dev.txt
+PYTHONPATH="$PWD" pytest -q
+```
+
+Validate Terraform formatting and configuration:
+
+```bash
+cd infra/aws
+terraform fmt -check
+terraform init -backend=false
+terraform validate
+```
+
+The Helm chart in `helm/ai-platform/` includes deployment, service, and HPA templates for Argo CD based GitOps deployment.
 
 ## EKS Cluster
 
